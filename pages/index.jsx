@@ -1,4 +1,4 @@
-import { Header } from "../components";
+import { Header, Video, LatestCourses, Subscribtion } from "../components";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -16,10 +16,10 @@ export default function Home({ locale }) {
 
   return (
     <div className={cls.home}>
-      {/* <h1>this is main page</h1>
-      <LangSwitch locale={locale} />
-      <h3>{t("welcome")}</h3> */}
       <Header />
+      <Video />
+      <LatestCourses />
+      <Subscribtion />
     </div>
   );
 }

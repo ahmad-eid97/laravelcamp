@@ -27,27 +27,27 @@ const Navbar = () => {
   return (
     <div className={`${cls.navbar} ${scrollY > 100 ? cls.scrolled : ""}`}>
       <nav>
-        <div className={cls.domain}>
-          <span className={cls.mobIcon} onClick={() => setMobSidebar(true)}>
-            <i className="fa-thin fa-grid-2"></i>
-          </span>
-          <i className="fa-solid fa-bell"></i> <span>اماكن العمل</span>
-        </div>
-        <div className={cls.links}>
-          <ul>
-            <li>الدعم الفني</li>
-            <li>مجتمعنا</li>
-            <li>المكتبة</li>
-            <li>المسارات</li>
-            <li>الصفحة الرئيسية</li>
-          </ul>
-        </div>
         <div className={cls.logo}>
           <img
             src="/assets/imgs/logo.png"
             alt="logo"
             onClick={() => router.push("/")}
           />
+        </div>
+        <div className={cls.links}>
+          <ul>
+            <li>الصفحة الرئيسية</li>
+            <li>المسارات</li>
+            <li>المكتبة</li>
+            <li>مجتمعنا</li>
+            <li>الدعم الفني</li>
+          </ul>
+        </div>
+        <div className={cls.domain}>
+          <span>اماكن العمل</span> <i className="fa-solid fa-bell"></i>
+          <span className={cls.mobIcon} onClick={() => setMobSidebar(true)}>
+            <i className="fa-thin fa-grid-2"></i>
+          </span>
         </div>
       </nav>
 
