@@ -1,9 +1,11 @@
+import { Header } from "../components";
+
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import langRedirection from "../utils/redirections/langRedirection/langRedirection";
 import routeRedirection from "../utils/redirections/routeRedirection/routeRedirection";
 
-import LangSwitch from "./../components/Switches/LangSwitch/LangSwitch";
+import LangSwitch from "../components/Switches/LangSwitch/LangSwitch";
 
 import { useTranslation } from "next-i18next";
 
@@ -14,9 +16,10 @@ export default function Home({ locale }) {
 
   return (
     <div className={cls.home}>
-      <h1>this is main page</h1>
+      {/* <h1>this is main page</h1>
       <LangSwitch locale={locale} />
-      <h3>{t("welcome")}</h3>
+      <h3>{t("welcome")}</h3> */}
+      <Header />
     </div>
   );
 }

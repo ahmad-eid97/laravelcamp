@@ -1,9 +1,10 @@
-import Navbar from "../components/navbar/Navbar";
+import { Navbar } from "../components";
 
 const MainLayout = ({ children }) => {
   return (
     <div>
-      <Navbar>{children}</Navbar>
+      <Navbar />
+      {children}
     </div>
   );
 };

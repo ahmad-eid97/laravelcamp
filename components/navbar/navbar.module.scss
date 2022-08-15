@@ -1,18 +1,72 @@
+@import '../../styles/mixins.scss';
+
 .navbar {
-  background-color: #fff;
-  padding: 15px 20px;
+  background-color: transparent;
+  padding: 14px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  transition: all 0.3s ease-in-out;
+  @include xs {
+    padding: 10px;
+  }
+  &.scrolled {
+    background-color: #fff;
+  } 
   nav {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background-image: var(--main-background);
-    // background-color: red;
-    padding: 20px;
+    padding: 10px 50px;
     color: #fff;
     border-radius: 20px 20px 0 20px;
+    @include md {
+      padding: 10px 20px;
+    }
+    .domain {
+      i {
+        font-size: 1.5rem;
+        border-right: 1px solid rgb(180, 26, 26);
+        padding-right: 10px;
+        @include xs {
+          font-size: 1.2rem;
+        }
+      }
+      span {
+        padding: 0 10px;
+        font-weight: 600;
+        @include md {
+          display: none;
+        }
+      }
+      .mobIcon {
+        cursor: pointer;
+        display: none;
+      }
+      .mobIcon {
+        @include md {
+          display: inline-block;
+        }
+      }
+    }
+
     .links {
       ul {
         display: flex;
         gap: 20px;
+      }
+      @include md {
+        display: none;
+      }
+    }
+    .logo {
+      img {
+        width: 100px;
+        cursor: pointer;
+        @include xs {
+          width: 80px;
+        }
       }
     }
   }

@@ -10,6 +10,7 @@ import { appWithTranslation } from "next-i18next";
 
 import { wrapper } from "../store/store";
 
+import "../public/css/all.min.css";
 import "../styles/variables.scss";
 import "../styles/globals.scss";
 
