@@ -14,12 +14,12 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      setScrollY(document.body.scrollTop);
     };
 
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll);
+    document.body.addEventListener("scroll", handleScroll);
     // return () => {
     //   window.removeEventListener("scroll", handleScroll);
     // };

@@ -42,10 +42,15 @@ body {
   background-color: rgb(240, 240, 240);
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  min-height: 100% !important;
 }
 
 .container {
@@ -308,7 +313,13 @@ img {
     }
   }
   @include xs {
-    transform: scale(0.9);
+    button {
+      font-size: 0.7rem;
+      width: 20px;
+      height: 30px;
+      margin: 0;
+      // transform: scale(0.6);
+    }
   }
 }
 
