@@ -1,8 +1,8 @@
 import Container from "@mui/material/Container";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
+
 import cls from "./latesetCourses.module.scss";
 
 const LatestCourses = () => {

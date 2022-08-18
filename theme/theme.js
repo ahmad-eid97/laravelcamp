@@ -15,6 +15,18 @@ const ThemeProviderContext = ({ children }) => {
         xxl: 1480
       }
     },
+    components: {
+      MuiTooltip: {
+        styleOverrides: {
+          tooltip: {
+            fontSize: '0.8rem',
+            fontFamily: "'Cairo', sans-serif",
+            padding: '7px 15px',
+            backgroundColor: "rgba(0, 0, 0, 0.9)"
+          }
+        }
+      },
+    }
   })
 
   return (

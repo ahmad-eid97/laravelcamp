@@ -1,19 +1,17 @@
-import React from "react";
+import Container from "@mui/material/Container";
+
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import langRedirection from "../../utils/redirections/langRedirection/langRedirection";
-import routeRedirection from "../../utils/redirections/routeRedirection/routeRedirection";
+import langRedirection from "../../../utils/redirections/langRedirection/langRedirection";
+import routeRedirection from "../../../utils/redirections/routeRedirection/routeRedirection";
 
-import LangSwitch from "../../components/Switches/LangSwitch/LangSwitch";
+import cls from './techdegree.module.scss';
 
-const index = ({ locale }) => {
+const Techdegree = () => {
   return (
-    <div>
-      <LangSwitch locale={locale} />
-      index
-    </div>
-  );
-};
+    <div>Techdegree</div>
+  )
+}
 
 export async function getServerSideProps({ req, locale, resolvedUrl }) {
   const languageRedirection = langRedirection(req, locale);
@@ -30,4 +28,4 @@ export async function getServerSideProps({ req, locale, resolvedUrl }) {
   };
 }
 
-export default index;
+export default Techdegree

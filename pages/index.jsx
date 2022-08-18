@@ -1,4 +1,13 @@
-import { Header, Video, LatestCourses, Subscribtion } from "../components";
+import {
+  Header,
+  Video,
+  LatestCourses,
+  Subscribtion,
+  FAQ,
+  Skills,
+  Testimonials,
+  Blogs,
+} from "../components";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -20,6 +29,10 @@ export default function Home({ locale }) {
       <Video />
       <LatestCourses />
       <Subscribtion />
+      <FAQ />
+      <Skills />
+      <Testimonials />
+      <Blogs />
     </div>
   );
 }

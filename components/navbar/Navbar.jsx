@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 import MobSidebar from "./MobSidebar/MobSidebar";
@@ -36,11 +37,24 @@ const Navbar = () => {
         </div>
         <div className={cls.links}>
           <ul>
-            <li>الصفحة الرئيسية</li>
-            <li>المسارات</li>
-            <li>المكتبة</li>
-            <li>مجتمعنا</li>
-            <li>الدعم الفني</li>
+            <li className={router.pathname === "/" ? cls.active : ""}>
+              <Link href="/">الصفحة الرئيسية</Link>
+            </li>
+            <li className={router.pathname === "/tracks" ? cls.active : ""}>
+              <Link href="/tracks"> المسارات</Link>
+            </li>
+            <li className={router.pathname === "/library" ? cls.active : ""}>
+              <Link href="/library"> المكتبة</Link>
+            </li>
+            <li className={router.pathname === "/society" ? cls.active : ""}>
+              <Link href="/society"> مجتمعنا</Link>
+            </li>
+            <li className={router.pathname === "/support" ? cls.active : ""}>
+              <Link href="/about"> من نحن؟</Link>
+            </li>
+            <li className={router.pathname === "/support" ? cls.active : ""}>
+              <Link href="/support"> الدعم الفني</Link>
+            </li>
           </ul>
         </div>
         <div className={cls.domain}>

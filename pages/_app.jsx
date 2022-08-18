@@ -1,8 +1,11 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import App from "next/app";
 import Head from "next/head";
+import Router from "next/router";
 
 import MainLayout from "../layouts/MainLayout";
+
+import Loading from "../components/UIs/Loading/Loading";
 
 import ThemeProviderContext from "../theme/theme";
 
@@ -23,29 +26,29 @@ class MyApp extends App {
     }
   );
 
-  // state = {
-  //   showLoader: false
-  // }
+  state = {
+    showLoader: false,
+  };
 
   componentDidMount() {
     // PAGES LOADER
-    // Router.events.on('routeChangeStart', () => {
-    //   this.setState({
-    //     showLoader: true
-    //   })
-    // })
-    // Router.events.on('routeChangeComplete', () => {
-    //   this.setState({
-    //     showLoader: false
-    //   })
-    // })
+    Router.events.on("routeChangeStart", () => {
+      console.log("here we are");
+      this.setState({
+        showLoader: true,
+      });
+    });
+    Router.events.on("routeChangeComplete", () => {
+      this.setState({
+        showLoader: false,
+      });
+    });
   }
 
   render() {
-    const { Component, pageProps, router } = this.props;
+    const { Component, pageProps, router, state } = this.props;
     return (
       <>
-        {console.log()}
         <Head>
           <title>Laravelcamp</title>
           <link rel="shortcut icon" href="/assets/imgs/favicon.png" />
@@ -54,6 +57,12 @@ class MyApp extends App {
             rel="stylesheet"
           ></link>
         </Head>
+
+        {console.log(this.state.showLoader)}
+
+        {this.state.showLoader && <Loading />}
+        {/* <Loading /> */}
+
         <ThemeProviderContext>
           {router.pathname.startsWith("/login") ||
           router.pathname.startsWith("/signup") ? (

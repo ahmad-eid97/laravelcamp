@@ -55,6 +55,17 @@
       ul {
         display: flex;
         gap: 20px;
+        li {
+          border-radius: 10px;
+          padding: 8px;
+          &.active {
+            border-top: 2px dashed #fff;
+            border-bottom: 2px dashed #fff;
+          }
+          a {
+            color: #fff;
+          }
+        }
       }
       @include md {
         display: none;
