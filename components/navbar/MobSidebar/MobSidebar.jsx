@@ -12,6 +12,10 @@ const MobSidebar = ({ mobSidebar, setMobSidebar }) => {
   const { i18n } = useTranslation();
   const router = useRouter();
 
+  const close = () => {
+    setMobSidebar(false)
+  }
+
   return (
     <Box className={`${cls.wrapper} ${mobSidebar ? cls.show : cls.hide}`}>
       <Box className={cls.dropLayer} onClick={() => setMobSidebar(false)}></Box>
