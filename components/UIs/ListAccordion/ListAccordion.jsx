@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 
 import { useTranslation } from "react-i18next";
 
-import cls from "./dataAccordion.module.scss";
+import cls from "./listAccordion.module.scss";
 import { Typography } from "@mui/material";
 
 const Accordion = ({ data }) => {
@@ -43,17 +43,21 @@ const Accordion = ({ data }) => {
         className={`${cls.link} ${cls[i18n.language]}`}
         onClick={(e) => showSubList(e, "products")}
       >
+
+      <Box className={cls.icon}>
+        {/* <span>{format(data.date, 'H:m a')}</span> */}
+
+        <i className={`${cls[i18n.language]} fa-solid fa-arrow-down-long`}></i>
+      </Box>
+
         <Box className={`${cls.label} ${cls[i18n.language]}`}>
-          <i className="fa-regular fa-circle-info"></i>
 
-          {data.label}
-        </Box>
+          <h6>{data.label}</h6>
 
-        <Box className={cls.icon}>
-          {/* <span>{format(data.date, 'H:m a')}</span> */}
+          <p>{data.desc}</p>
 
-          {/* <i className={`${cls[i18n.language]} fa-regular fa-angle-down`}></i> */}
-          <i className={`${cls[i18n.language]} fa-regular fa-arrow-down-long`}></i>
+          <span className={cls.steps}>{data.steps.length} خطوات</span>
+
         </Box>
       </Box>
 
@@ -66,12 +70,29 @@ const Accordion = ({ data }) => {
         )}
 
         <Box className={cls.accordionBody}>
-          <Typography>
-            <span>
-              <i className="fa-regular fa-circle-question"></i>
-            </span>{" "}
-            {data.description}
-          </Typography>
+            {data.steps.map((step, idx) => (
+              <div key={idx} className={cls.step}>
+
+                {step.type === 'video' ?
+                  <i className="fa-solid fa-play"></i>
+                :
+                  <i className="fa-solid fa-question"></i>
+                }
+
+                <div>
+
+                  <h6>{step.name}</h6>
+
+                  {step.type === 'video' ?
+                    <span>{step.time}</span>
+                  :
+                    <span>{step.number} اسئلة</span>
+                  }
+
+                </div>
+
+              </div>
+            ))}
 
           <Typography className={cls.time}>
             {/* <i className="fa-light fa-stopwatch"></i> Order placed on {format(data.data.date, 'EEEE')} {format(data.data.date, 'dd/MM/yyyy')} */}

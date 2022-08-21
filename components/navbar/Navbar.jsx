@@ -49,7 +49,7 @@ const Navbar = () => {
             <li className={router.pathname === "/society" ? cls.active : ""}>
               <Link href="/society"> مجتمعنا</Link>
             </li>
-            <li className={router.pathname === "/support" ? cls.active : ""}>
+            <li className={router.pathname === "/about" ? cls.active : ""}>
               <Link href="/about"> من نحن؟</Link>
             </li>
             <li className={router.pathname === "/support" ? cls.active : ""}>

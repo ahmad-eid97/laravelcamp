@@ -1,4 +1,7 @@
+import { Trailer, Details, Teacher } from "../../../components";
+
 import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -9,7 +12,31 @@ import cls from './techdegree.module.scss';
 
 const Techdegree = () => {
   return (
-    <div>Techdegree</div>
+    <div className={cls.techdegree}>
+      <Container maxWidth="xxl" className="container">
+        <Trailer />
+
+        <div className={cls.techdegree__details}>
+
+          <Grid container spacing={5} className={cls.techdegree__wrapper}>
+
+            <Grid item md={7}>
+
+              <Details />
+
+            </Grid>
+
+            <Grid item md={5}>
+
+              <Teacher />
+
+            </Grid>
+
+          </Grid>
+
+        </div>
+      </Container>
+    </div>
   )
 }
 

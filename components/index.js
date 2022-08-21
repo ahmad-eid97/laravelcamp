@@ -4,7 +4,7 @@ export { default as Navbar } from './navbar/Navbar';
 
 export { default as Footer } from './Footer/Footer'
 
-// HOME COMPONENTS
+// HOME PAGE COMPONENTS
 
 export { default as Video } from './home/Video/Video';
 
@@ -20,10 +20,24 @@ export { default as Testimonials } from './home/Testimonials/Testimonials';
 
 export { default as Blogs } from './home/Blogs/Blogs';
 
-// LIBRARY COMPONENTS
+// LIBRARY PAGE COMPONENTS
 
 export { default as Search } from './library/Search/Search';
 
 export { default as Topics } from './library/Topics/Topics';
 
 export { default as Practice } from './library/Practice/Practice';
+
+// TECHDEGREE PAGE COMPONENTS 
+
+export { default as Trailer } from './techdegree/Trailer/Trailer';
+
+export { default as Details } from './techdegree/Details/Details';
+
+export { default as Teacher } from './techdegree/Teacher/Teacher';
+
+// COURSE PAGE COMPONENTS
+
+export { default as Preview } from './course/Preview/Preview';
+
+export { default as CourseDetails } from './course/Details/Details';

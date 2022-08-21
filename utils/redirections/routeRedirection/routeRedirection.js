@@ -1,5 +1,5 @@
 export default function routeRedirection (req, resolvedUrl) {
-  const requireAuth = ['/about'];
+  const requireAuth = ['/dsfd'];
   const requireNoAuth = ['/login', '/signup']
 
   if (requireAuth.includes(resolvedUrl)) {

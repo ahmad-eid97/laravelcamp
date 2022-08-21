@@ -14,14 +14,7 @@
     align-items: center;
     font-size: 1rem;
     position: relative;
-    border-left: 5px dashed var(--main-color);
-    background-color: rgb(233, 233, 233);
     padding: 10px 0;
-    box-shadow: 0 1px 10px rgb(56 65 74 / 10%);
-    &.ar {
-      border-left: unset;
-      border-right: 5px dashed var(--main-color);
-    }
 
     .icon {
       pointer-events: none;
@@ -40,19 +33,21 @@
       }
       
       i {
-        font-size: 1rem;
+        font-size: 1.5rem;
         display: flex;
         align-items: center;
-        margin: 0 10px;
         justify-content: center;
+        padding: 0 20px;
         transition: all 0.2s ease-in-out;
-        width: 40px;
-        height: 40px;
         background-image: var(--main-background);
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         color: #fff;
         @include xs {
           font-size: 0.8rem;
+          width: 40px;
+          height: 40px;
         }
       }
 
@@ -64,8 +59,6 @@
       font-size: 1rem;
       font-weight: 600;
       margin: 0 15px;
-      display: flex;
-      align-items: center;
       @include xs {
         font-size: 0.9rem;
       }
@@ -81,6 +74,16 @@
           margin-right: unset;
           margin-left: 10px;
         }
+      }
+
+      h6 {
+        color: var(--main-color);
+      }
+
+      span {
+        color: var(--main-color);
+        font-weight: 600;
+        font-size: 0.9rem;
       }
     }
 
@@ -106,7 +109,6 @@
     transition: all 0.3s ease-in-out;
     position: relative;
     z-index: 9;
-    box-shadow: 0 1px 2px rgb(56 65 74 / 10%);
 
     .dropLayer {
       display: none;
@@ -121,18 +123,40 @@
 
     .accordionBody {
       padding: 20px 20px;
-      background-color: var(--special-background);
-      p {
+
+      .step {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+
+        i {
+          border: 2px solid var(--main-color);
+          color: var(--main-color);
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: grid;
+          place-content: center;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            width: 35px;
+            height: 35px;
+          }
+          @include xs {
+            font-size: 0.8rem;
+          }
+        }
+
+        h6 {
+          @include xs {
+            font-size: 0.9rem;
+          }
+        }
+
         span {
           color: var(--main-color);
-          font-weight: 600;
         }
-      }
-      .time {
-        margin-top: 10px;
-        color: var(--main-color);
-        font-weight: 500;
-        font-size: 0.9rem;
       }
     }
   }
