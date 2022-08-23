@@ -13,6 +13,8 @@ import { appWithTranslation } from "next-i18next";
 
 import { wrapper } from "../store/store";
 
+import ScrollToTop from './../components/UIs/ScrollToTop/ScrollToTop';
+
 import "react-modal-video/scss/modal-video.scss";
 import "../public/css/all.min.css";
 import "../styles/variables.scss";
@@ -63,16 +65,19 @@ class MyApp extends App {
         {this.state.showLoader && <Loading />}
         {/* <Loading /> */}
 
-        <ThemeProviderContext>
-          {router.pathname.startsWith("/login") ||
-          router.pathname.startsWith("/signup") ? (
-            <Component {...pageProps} />
-          ) : (
-            <MainLayout>
+        {/* <ScrollToTop> */}
+          <ThemeProviderContext>
+            {router.pathname.startsWith("/login") ||
+            router.pathname.startsWith("/signup") ? (
               <Component {...pageProps} />
-            </MainLayout>
-          )}
-        </ThemeProviderContext>
+            ) : (
+              <MainLayout>
+                <Component {...pageProps} />
+              </MainLayout>
+            )}
+          </ThemeProviderContext>
+        {/* </ScrollToTop> */}
+
       </>
     );
   }

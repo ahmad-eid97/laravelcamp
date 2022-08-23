@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import Container from "@mui/material/Container";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -5,7 +7,36 @@ import "swiper/css";
 
 import cls from "./blogs.module.scss";
 
+const blogs = [
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+]
+
 const LatestCourses = () => {
+  const router = useRouter();
+
   const breakpoints = {
     // when window width is >= 320px
     100: {
@@ -44,122 +75,38 @@ const LatestCourses = () => {
         onSwiper={(swiper) => console.log(swiper)}
         breakpoints={breakpoints}
       >
-        <SwiperSlide>
-          <div className={cls.latestCourses__slide}>
-            <div className={cls.latestCourses__slide_head}>
-              <h3>Gulp For Beginners</h3>
-              <div className={cls.headWrapper}>
-                <div>
-                  <span>
-                    <i className="fa-solid fa-user"></i> ahmad eid
-                  </span>
-                </div>
+        {blogs.map((blog, idx) => (
+          <SwiperSlide key={idx}>
+            <div className={cls.latestCourses__slide}>
+              <div className={cls.latestCourses__slide_head}>
+                <h3>{blog.name}</h3>
+                <div className={cls.headWrapper}>
+                  <div>
+                    <span>
+                      <i className="fa-solid fa-user"></i> {blog.user}
+                    </span>
+                  </div>
 
-                <div>
-                  <span>
-                    june 7, 2022 <i className="fa-light fa-clock"></i>
-                  </span>
+                  <div>
+                    <span>
+                      {blog.date} <i className="fa-light fa-clock"></i>
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={cls.latestCourses__slide_body}>
-              <button>عرض</button>
-              <p>
-                إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={cls.latestCourses__slide}>
-            <div className={cls.latestCourses__slide_head}>
-              <h3>Gulp For Beginners</h3>
-              <div className={cls.headWrapper}>
-                <div>
-                  <span>
-                    <i className="fa-solid fa-user"></i> ahmad eid
-                  </span>
-                </div>
-
-                <div>
-                  <span>
-                    june 7, 2022 <i className="fa-light fa-clock"></i>
-                  </span>
-                </div>
+              <div className={cls.latestCourses__slide_body}>
+                <button>عرض</button>
+                <p>
+                  {blog.desc}
+                </p>
               </div>
             </div>
-            <div className={cls.latestCourses__slide_body}>
-              <button>عرض</button>
-              <p>
-                إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={cls.latestCourses__slide}>
-            <div className={cls.latestCourses__slide_head}>
-              <h3>Gulp For Beginners</h3>
-              <div className={cls.headWrapper}>
-                <div>
-                  <span>
-                    <i className="fa-solid fa-user"></i> ahmad eid
-                  </span>
-                </div>
-
-                <div>
-                  <span>
-                    june 7, 2022 <i className="fa-light fa-clock"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className={cls.latestCourses__slide_body}>
-              <button>عرض</button>
-              <p>
-                إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={cls.latestCourses__slide}>
-            <div className={cls.latestCourses__slide_head}>
-              <h3>Gulp For Beginners</h3>
-              <div className={cls.headWrapper}>
-                <div>
-                  <span>
-                    <i className="fa-solid fa-user"></i> ahmad eid
-                  </span>
-                </div>
-
-                <div>
-                  <span>
-                    june 7, 2022 <i className="fa-light fa-clock"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className={cls.latestCourses__slide_body}>
-              <button>عرض</button>
-              <p>
-                إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div className={cls.btn}>
-        <button>عرض المزيد</button>
+        <button onClick={() => router.push('/blogs')}>عرض المزيد</button>
       </div>
     </Container>
   );

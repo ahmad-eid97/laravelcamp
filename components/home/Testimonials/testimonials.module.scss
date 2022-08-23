@@ -15,6 +15,7 @@
   }
   .carousel {
     .mainWrapper {
+      cursor: grab;
       @include md {
         flex-direction: column-reverse;
       }

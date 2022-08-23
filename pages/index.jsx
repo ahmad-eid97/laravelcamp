@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import {
   Header,
   Video,
@@ -14,20 +16,27 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import langRedirection from "../utils/redirections/langRedirection/langRedirection";
 import routeRedirection from "../utils/redirections/routeRedirection/routeRedirection";
 
-import LangSwitch from "../components/Switches/LangSwitch/LangSwitch";
+import { wrapper } from "../store/store";
 
 import { useTranslation } from "next-i18next";
 
+import axios from './../utils/axios';
+
 import cls from "./home.module.scss";
 
-export default function Home({ locale }) {
+const Home = ({ locale, courses }) =>  {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+
 
   return (
     <div className={cls.home}>
       <Header />
       <Video />
-      <LatestCourses />
+      <LatestCourses courses={courses} />
       <Subscribtion />
       <FAQ />
       <Skills />
@@ -37,17 +46,29 @@ export default function Home({ locale }) {
   );
 }
 
-export async function getServerSideProps({ req, locale, resolvedUrl }) {
-  const languageRedirection = langRedirection(req, locale);
-  const routerRedirection = routeRedirection(req, resolvedUrl);
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ req, locale, resolvedUrl }) => {
+      const languageRedirection = langRedirection(req, locale);
+      const routerRedirection = routeRedirection(req, resolvedUrl);
+    
+      if (languageRedirection) return languageRedirection;
+      if (routerRedirection) return routerRedirection;
+    
+      let courses = []
+    
+      const COURSES = await axios.get('/get-popular-courses');
+    
+      if (COURSES) courses = COURSES.data.data
+    
+      return {
+        props: {
+          ...(await serverSideTranslations(locale, ["common", "footer"])),
+          locale,
+          courses
+        },
+      };
+    }
+);
 
-  if (languageRedirection) return languageRedirection;
-  if (routerRedirection) return routerRedirection;
-
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common", "footer"])),
-      locale,
-    },
-  };
-}
+export default Home;

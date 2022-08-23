@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect } from "react";
+
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
@@ -10,6 +12,10 @@ import routeRedirection from "../../utils/redirections/routeRedirection/routeRed
 import cls from './profile.module.scss';
 
 const Profile = () => {
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+  
   return (
     <div className={cls.profile}>
 

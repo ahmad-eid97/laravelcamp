@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { Trailer, Details, Teacher } from "../../../components";
 
 import Container from "@mui/material/Container";
@@ -11,6 +13,10 @@ import routeRedirection from "../../../utils/redirections/routeRedirection/route
 import cls from './techdegree.module.scss';
 
 const Techdegree = () => {
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+  
   return (
     <div className={cls.techdegree}>
       <Container maxWidth="xxl" className="container">

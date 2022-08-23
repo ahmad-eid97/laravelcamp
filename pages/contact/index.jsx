@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
@@ -9,6 +11,10 @@ import routeRedirection from "../../utils/redirections/routeRedirection/routeRed
 import cls from './contact.module.scss';
 
 const Contact = () => {
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+
   return (
     <div className={cls.contact}>
 

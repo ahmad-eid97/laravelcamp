@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
@@ -8,7 +10,68 @@ import routeRedirection from "../../utils/redirections/routeRedirection/routeRed
 
 import cls from './blogs.module.scss';
 
+const blogs = [
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+  {
+    name: 'Gulp For Beginners',
+    user: 'ahmad eid',
+    date: 'june 7, 2022',
+    desc: "إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقً  لصفحتهم الرئيسية gulpjs.com ، فهي عبارة عن مجموعة أدوات لأتمت وتحسين سير عملك. ماذا يفعل ذلك بالضبط"
+  },
+]
+
 const Blogs = () => {
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+  
   return (
     <div className={cls.blogs}>
 
@@ -18,191 +81,36 @@ const Blogs = () => {
 
         <Grid container spacing={3}>
 
-          <Grid item xs={12} sm={6} lg={4}>
+          {blogs.map((blog, idx) => (
+            <Grid item xs={12} sm={6} lg={4} key={idx}>
 
-            <div className={cls.blog}>
-              <div className={cls.blog__head}>
-                <h3>Gulp For Beginners</h3>
-                <div className={cls.headWrapper}>
-                  <div>
-                    <span>
-                      <i className="fa-solid fa-user"></i> ahmad eid
-                    </span>
-                  </div>
+              <div className={cls.blog}>
+                <div className={cls.blog__head}>
+                  <h3>{blog.name}</h3>
+                  <div className={cls.headWrapper}>
+                    <div>
+                      <span>
+                        <i className="fa-solid fa-user"></i> {blog.user}
+                      </span>
+                    </div>
 
-                  <div>
-                    <span>
-                      june 7, 2022 <i className="fa-light fa-clock"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className={cls.blog__body}>
-                <button>عرض</button>
-                <p>
-                  إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                  لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                  وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-                </p>
-              </div>
-            </div>
-
-          </Grid>
-
-          <Grid item xs={12} sm={6} lg={4}>
-
-            <div className={cls.blog}>
-              <div className={cls.blog__head}>
-                <h3>Gulp For Beginners</h3>
-                <div className={cls.headWrapper}>
-                  <div>
-                    <span>
-                      <i className="fa-solid fa-user"></i> ahmad eid
-                    </span>
-                  </div>
-
-                  <div>
-                    <span>
-                      june 7, 2022 <i className="fa-light fa-clock"></i>
-                    </span>
+                    <div>
+                      <span>
+                        {blog.date} <i className="fa-light fa-clock"></i>
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className={cls.blog__body}>
-                <button>عرض</button>
-                <p>
-                  إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                  لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                  وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-                </p>
-              </div>
-            </div>
-
-          </Grid>
-
-          <Grid item xs={12} sm={6} lg={4}>
-
-            <div className={cls.blog}>
-              <div className={cls.blog__head}>
-                <h3>Gulp For Beginners</h3>
-                <div className={cls.headWrapper}>
-                  <div>
-                    <span>
-                      <i className="fa-solid fa-user"></i> ahmad eid
-                    </span>
-                  </div>
-
-                  <div>
-                    <span>
-                      june 7, 2022 <i className="fa-light fa-clock"></i>
-                    </span>
-                  </div>
+                <div className={cls.blog__body}>
+                  <button>عرض</button>
+                  <p>
+                    {blog.desc}
+                  </p>
                 </div>
               </div>
-              <div className={cls.blog__body}>
-                <button>عرض</button>
-                <p>
-                  إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                  لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                  وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-                </p>
-              </div>
-            </div>
 
-          </Grid>
-
-          <Grid item xs={12} sm={6} lg={4}>
-
-            <div className={cls.blog}>
-              <div className={cls.blog__head}>
-                <h3>Gulp For Beginners</h3>
-                <div className={cls.headWrapper}>
-                  <div>
-                    <span>
-                      <i className="fa-solid fa-user"></i> ahmad eid
-                    </span>
-                  </div>
-
-                  <div>
-                    <span>
-                      june 7, 2022 <i className="fa-light fa-clock"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className={cls.blog__body}>
-                <button>عرض</button>
-                <p>
-                  إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                  لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                  وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-                </p>
-              </div>
-            </div>
-
-          </Grid>
-
-          <Grid item xs={12} sm={6} lg={4}>
-
-            <div className={cls.blog}>
-              <div className={cls.blog__head}>
-                <h3>Gulp For Beginners</h3>
-                <div className={cls.headWrapper}>
-                  <div>
-                    <span>
-                      <i className="fa-solid fa-user"></i> ahmad eid
-                    </span>
-                  </div>
-
-                  <div>
-                    <span>
-                      june 7, 2022 <i className="fa-light fa-clock"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className={cls.blog__body}>
-                <button>عرض</button>
-                <p>
-                  إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                  لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                  وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-                </p>
-              </div>
-            </div>
-
-          </Grid>
-
-          <Grid item xs={12} sm={6} lg={4}>
-
-            <div className={cls.blog}>
-              <div className={cls.blog__head}>
-                <h3>Gulp For Beginners</h3>
-                <div className={cls.headWrapper}>
-                  <div>
-                    <span>
-                      <i className="fa-solid fa-user"></i> ahmad eid
-                    </span>
-                  </div>
-
-                  <div>
-                    <span>
-                      june 7, 2022 <i className="fa-light fa-clock"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className={cls.blog__body}>
-                <button>عرض</button>
-                <p>
-                  إعداد gulp باستخدام gulp.js مقدمة إلى gulp.js ما هو gulp؟ وفقًا
-                  لصفحتهم الرئيسية (gulpjs.com) ، فهي عبارة عن مجموعة أدوات لأتمتة
-                  وتحسين سير عملك. ماذا يفعل ذلك بالضبط
-                </p>
-              </div>
-            </div>
-
-          </Grid>
+            </Grid>
+          ))}
 
         </Grid>
 

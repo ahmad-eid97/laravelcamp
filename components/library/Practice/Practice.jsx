@@ -19,8 +19,10 @@ const practices = [
   },
 ]
 
-const Practice = () => {
+const Practice = ({ quizzes }) => {
   const router = useRouter();
+
+  console.log(quizzes)
 
   return <div className={cls.practice}>
     <div className={cls.practice__header}>
@@ -33,11 +35,10 @@ const Practice = () => {
 
     <div className={cls.practice__topics}>
       <Grid container spacing={3}>
-        {practices.map((topic, idx) => (
+        {quizzes.slice(0, 3).map((quiz, idx) => (
           <Grid item xs={12} md={6} lg={4} key={idx}>
             <div className={cls.topic} onClick={() => router.push('/techdegree/123')}>
               <div className={cls.topic__head}>
-
                 <div>
                   <i className="fa-regular fa-circle-small"></i>
                   <i className="fa-regular fa-circle-small"></i>
@@ -46,13 +47,13 @@ const Practice = () => {
               </div>
               <div className={cls.topic__body}>
                 <h6>تدريبات</h6>
-                <h4>{topic.name}</h4>
-                <p>{topic.desc}</p>
+                <h4>{quiz.title.en}</h4>
+                <p>Practice accessing data and cleaning it for use in other functions or programs</p>
               </div>
               <div className={cls.topic__actions}>
-                <div className={cls.action}>
+                {/* <div className={cls.action}>
                   <i className="fa-solid fa-play"></i>
-                </div>
+                </div> */}
                 <div className={cls.action}>Beginner</div>
                 <div className={cls.action}>Python</div>
               </div>

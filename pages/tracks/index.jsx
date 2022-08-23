@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+
+import VideoPreview from '../../components/modals/VideoPreview/VideoPreview';
 
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -12,82 +14,32 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import langRedirection from "../../utils/redirections/langRedirection/langRedirection";
 import routeRedirection from "../../utils/redirections/routeRedirection/routeRedirection";
 
+import axios from '../../utils/axios';
+
 import cls from "./tracks.module.scss";
 
-const mostPopular = [
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-];
-
-const allCourses = [
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-  {
-    hours: "56",
-    name: "Node.js Basics",
-    desc: "في هذه الدورة ، سننشئ تطبيقين لسطر الأوامر باستخدام جانب الخادم الشائع",
-  },
-];
-
-const Tracks = ({ locale }) => {
+const Tracks = ({ locale, allCourses, popularCourses }) => {
+  const [openVideoPreview, setOpenVideoPreview] = useState(false);
+  const [videoLink, setVideoLink] = useState('');
   const [pageNumber, setPageNumber] = useState(1);
   const router = useRouter();
+
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+
+  console.log(popularCourses)
 
   // COMPONENT HANDLERS
   const changePage = (e, pageNum) => {
     setPageNumber(pageNum);
   };
+
+  const openTrialer = (course) => {
+    setVideoLink(course.trailer_link)
+    setOpenVideoPreview(true)
+  }
+
   return (
     <div className={cls.tracks}>
 
@@ -99,9 +51,9 @@ const Tracks = ({ locale }) => {
           </div>
         </div>
         <Grid container spacing={3}>
-          {mostPopular.map((course, idx) => (
+          {popularCourses.slice(0, 3).map((course, idx) => (
             <Grid item xs={12} md={6} lg={6} xl={4} key={idx}>
-              <div className={cls.tracks__course} onClick={() => router.push('/tracks/123')}>
+              <div className={cls.tracks__course}>
                 <div className={cls.tracks__course_head}>
                   <div>
                     <i className="fa-light fa-clock"></i> {course.hours} ساعة
@@ -116,13 +68,14 @@ const Tracks = ({ locale }) => {
                 </div>
                 <div className={cls.tracks__course_body}>
                   <h6>كورس</h6>
-                  <h4>{course.name}</h4>
-                  <p>{course.desc}</p>
+                  <h4>{course.title.en}</h4>
+                  <p>In this course we will create two command line applications
+                      using the popular server-side</p>
                 </div>
                 <div className={cls.tracks__course_actions}>
                   <div className={cls.icons}>
                     <Tooltip title="مشاهدة الإعلان" placement="top">
-                      <div className={cls.action}>
+                      <div className={cls.action} onClick={() => openTrialer(course)}>
                         <i className="fa-solid fa-play"></i>
                       </div>
                     </Tooltip>
@@ -143,7 +96,7 @@ const Tracks = ({ locale }) => {
                       </div>
                     </Tooltip>
                   </div>
-                  <button>عرض التفاصيل</button>
+                  <button onClick={() => router.push(`/tracks/${course.id}`)}>عرض التفاصيل</button>
                 </div>
               </div>
             </Grid>
@@ -163,7 +116,7 @@ const Tracks = ({ locale }) => {
           <Grid container spacing={3}>
             {allCourses.map((course, idx) => (
               <Grid item xs={12} md={6} lg={6} xl={4} key={idx}>
-                <div className={cls.tracks__course} onClick={() => router.push('/tracks/123')}>
+                <div className={cls.tracks__course}>
                   <div className={cls.tracks__course_head}>
                     <div>
                       <i className="fa-light fa-clock"></i> {course.hours} ساعة
@@ -178,13 +131,14 @@ const Tracks = ({ locale }) => {
                   </div>
                   <div className={cls.tracks__course_body}>
                     <h6>كورس</h6>
-                    <h4>{course.name}</h4>
-                    <p>{course.desc}</p>
+                    <h4>{course.title.en}</h4>
+                    <p>In this course we will create two command line applications
+                      using the popular server-side</p>
                   </div>
                   <div className={cls.tracks__course_actions}>
                     <div className={cls.icons}>
                       <Tooltip title="مشاهدة الإعلان" placement="top">
-                        <div className={cls.action}>
+                        <div className={cls.action} onClick={() => openTrialer(course)}>
                           <i className="fa-solid fa-play"></i>
                         </div>
                       </Tooltip>
@@ -225,6 +179,8 @@ const Tracks = ({ locale }) => {
           </div>
         )}
       </Container>
+
+      {openVideoPreview && <VideoPreview setOpenPreview={setOpenVideoPreview} videoLink={videoLink} />}
     </div>
   );
 };
@@ -235,11 +191,25 @@ export async function getServerSideProps({ req, locale, resolvedUrl }) {
 
   if (languageRedirection) return languageRedirection;
   if (routerRedirection) return routerRedirection;
+    
+  let popularCourses = []
+
+  const POPULAR_COURSES = await axios.get('/get-popular-courses');
+
+  if (POPULAR_COURSES) popularCourses = POPULAR_COURSES.data.data
+    
+  let allCourses = []
+
+  const COURSES = await axios.get('/get-all-courses');
+
+  if (COURSES) allCourses = COURSES.data.data
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common", "footer"])),
       locale,
+      popularCourses,
+      allCourses
     },
   };
 }

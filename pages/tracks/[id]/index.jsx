@@ -1,5 +1,10 @@
+import { useState, useEffect } from "react";
+
+import VideoPreview from '../../../components/modals/VideoPreview/VideoPreview';
+
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Tooltip from "@mui/material/Tooltip";
 
 import ProgressBar from './../../../components/UIs/ProgressBar/ProgressBar';
 
@@ -8,184 +13,77 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import langRedirection from "../../../utils/redirections/langRedirection/langRedirection";
 import routeRedirection from "../../../utils/redirections/routeRedirection/routeRedirection";
 
+import axios from '../../../utils/axios';
+
 import cls from './trackDetails.module.scss';
 
-const TrackDetails = () => {
+const TrackDetails = ({ course }) => {
+  const [openVideoPreview, setOpenVideoPreview] = useState(false);
+  const [videoLink, setVideoLink] = useState('');
+
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+
+
   return (
     <div className={cls.trackDetails}>
       <Container maxWidth="xxl" className="container">
         <Grid container spacing={4} className={cls.pageWrapper}>
+
           <Grid item md={6}>
 
             <div className={cls.trackDetails__specs}>
               <div className={cls.trackDetails__specs_head}>
-                <h2>Welcome To Front End Web Development</h2>
-                <p>Learn to code websites using HTML, CSS and Javascript.</p>
+                <h2>Welcome To {course.title.en}</h2>
+                <p>Learn to code websites using {course.title.en}</p>
                 <button>عرض الكل</button>
               </div>
 
-              <div className={cls.part}>
-                <div className={cls.part__head}>
-                  <div>
-                    <i className="fa-light fa-clock"></i> 56 ساعة
-                  </div>
+              {course.chapters.map(chapter => (
 
-                  <div>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-solid fa-book"></i>
-                  </div>
-                </div>
-                <div className={cls.part__body}>
-                  <h6>Course</h6>
-                  <h4>Node.js Basics</h4>
-                  <p>
-                    In this course we will create two command line applications
-                    using the popular server-side
-                  </p>
-                </div>
-                <div className={cls.part__actions}>
-                  <div className={cls.action}>
-                    <i className="fa-solid fa-play"></i>
-                  </div>
-                  <div>
-                    <div className={cls.action}>Intermediate</div>
-                    <div className={cls.action}>PHP</div>
-                  </div>
-                </div>
-              </div>
+                <div className={cls.part} key={chapter.id}>
+                  <div className={cls.part__head}>
+                    <div>
+                      <i className="fa-light fa-clock"></i> 56 ساعة
+                    </div>
 
-              <div className={cls.part}>
-                <div className={cls.part__head}>
-                  <div>
-                    <i className="fa-light fa-clock"></i> 56 ساعة
+                    <div>
+                      <i className="fa-regular fa-circle-small"></i>
+                      <i className="fa-regular fa-circle-small"></i>
+                      <i className="fa-regular fa-circle-small"></i>
+                      <i className="fa-solid fa-book"></i>
+                    </div>
                   </div>
+                  <div className={cls.part__body}>
+                    <h6>Course</h6>
+                    <h4>{chapter.name}</h4>
+                    <p>
+                      In this course we will create two command line applications
+                      using the popular server-side
+                    </p>
+                  </div>
+                  <div className={cls.part__actions}>
+                    <Tooltip
+                      title="مشاهدة الاعلان"
+                      placement="top"
+                    >
+                      <div className={cls.action}>
+                        <i className="fa-solid fa-play"></i>
+                      </div>
+                    </Tooltip>
+                    <div>
+                      <div className={cls.action}>Intermediate</div>
+                      <div className={cls.action}>PHP</div>
+                    </div>
+                  </div>
+                </div>
 
-                  <div>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-solid fa-book"></i>
-                  </div>
-                </div>
-                <div className={cls.part__body}>
-                  <h6>Course</h6>
-                  <h4>Node.js Basics</h4>
-                  <p>
-                    In this course we will create two command line applications
-                    using the popular server-side
-                  </p>
-                </div>
-                <div className={cls.part__actions}>
-                  <div className={cls.action}>
-                    <i className="fa-solid fa-play"></i>
-                  </div>
-                  <div>
-                    <div className={cls.action}>Intermediate</div>
-                    <div className={cls.action}>PHP</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className={cls.part}>
-                <div className={cls.part__head}>
-                  <div>
-                    <i className="fa-light fa-clock"></i> 56 ساعة
-                  </div>
-
-                  <div>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-solid fa-book"></i>
-                  </div>
-                </div>
-                <div className={cls.part__body}>
-                  <h6>Course</h6>
-                  <h4>Node.js Basics</h4>
-                  <p>
-                    In this course we will create two command line applications
-                    using the popular server-side
-                  </p>
-                </div>
-                <div className={cls.part__actions}>
-                  <div className={cls.action}>
-                    <i className="fa-solid fa-play"></i>
-                  </div>
-                  <div>
-                    <div className={cls.action}>Intermediate</div>
-                    <div className={cls.action}>PHP</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className={cls.part}>
-                <div className={cls.part__head}>
-                  <div>
-                    <i className="fa-light fa-clock"></i> 56 ساعة
-                  </div>
-
-                  <div>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-solid fa-book"></i>
-                  </div>
-                </div>
-                <div className={cls.part__body}>
-                  <h6>Course</h6>
-                  <h4>Node.js Basics</h4>
-                  <p>
-                    In this course we will create two command line applications
-                    using the popular server-side
-                  </p>
-                </div>
-                <div className={cls.part__actions}>
-                  <div className={cls.action}>
-                    <i className="fa-solid fa-play"></i>
-                  </div>
-                  <div>
-                    <div className={cls.action}>Intermediate</div>
-                    <div className={cls.action}>PHP</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className={cls.part}>
-                <div className={cls.part__head}>
-                  <div>
-                    <i className="fa-light fa-clock"></i> 56 ساعة
-                  </div>
-
-                  <div>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-regular fa-circle-small"></i>
-                    <i className="fa-solid fa-book"></i>
-                  </div>
-                </div>
-                <div className={cls.part__body}>
-                  <h6>Course</h6>
-                  <h4>Node.js Basics</h4>
-                  <p>
-                    In this course we will create two command line applications
-                    using the popular server-side
-                  </p>
-                </div>
-                <div className={cls.part__actions}>
-                  <div className={cls.action}>
-                    <i className="fa-solid fa-play"></i>
-                  </div>
-                  <div>
-                    <div className={cls.action}>Intermediate</div>
-                    <div className={cls.action}>PHP</div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
           </Grid>
+
           <Grid item md={6}>
 
             <div className={cls.trackDetails__details}>
@@ -195,7 +93,7 @@ const TrackDetails = () => {
               </div>
 
               <div className={cls.trackDetails__details_body}>
-                <h2>Front End Web Development</h2>
+                <h2>{course.title.en}</h2>
 
                 <ProgressBar label="مستوي التقدم" percentage="30" />
 
@@ -217,23 +115,33 @@ const TrackDetails = () => {
             </div>
             
           </Grid>
+
         </Grid>
+
+        {openVideoPreview && <VideoPreview setOpenPreview={setOpenVideoPreview} videoLink={videoLink} />}
       </Container>
     </div>
   )
 }
 
-export async function getServerSideProps({ req, locale, resolvedUrl }) {
+export async function getServerSideProps({ req, locale, resolvedUrl, params }) {
   const languageRedirection = langRedirection(req, locale);
   const routerRedirection = routeRedirection(req, resolvedUrl);
 
   if (languageRedirection) return languageRedirection;
   if (routerRedirection) return routerRedirection;
+    
+  let course = []
+
+  const COURSE = await axios.get(`/get-course-details/${params.id}`);
+
+  if (COURSE) course = COURSE.data.data
 
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common", "footer"])),
       locale,
+      course
     },
   };
 }

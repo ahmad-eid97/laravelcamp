@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect } from "react";
+
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 
@@ -12,6 +14,10 @@ import routeRedirection from "../../utils/redirections/routeRedirection/routeRed
 import cls from './about.module.scss';
 
 const About = () => {
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+  
   return (
     <div className={cls.about}>
 

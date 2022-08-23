@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { Preview, CourseDetails } from "../../components";
 
 import Container from "@mui/material/Container";
@@ -10,6 +12,11 @@ import routeRedirection from "../../utils/redirections/routeRedirection/routeRed
 import cls from './course.module.scss';
 
 const Course = () => {
+
+  useEffect(() => {
+    document.querySelector("body").scrollTo(0,0)
+  }, [])
+
   return (
     <Container maxWidth="xxl" container>
       <div className={cls.course}>
