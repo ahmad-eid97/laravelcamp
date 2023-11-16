@@ -39,21 +39,27 @@ const Navbar = () => {
           <ul>
             <li className={router.pathname === "/" ? cls.active : ""}>
               <Link href="/">الصفحة الرئيسية</Link>
+              <p></p>
             </li>
             <li className={router.pathname === "/tracks" ? cls.active : ""}>
               <Link href="/tracks"> المسارات</Link>
+              <p></p>
             </li>
             <li className={router.pathname === "/library" ? cls.active : ""}>
               <Link href="/library"> المكتبة</Link>
+              <p></p>
             </li>
             <li className={router.pathname === "/society" ? cls.active : ""}>
               <Link href="/society"> مجتمعنا</Link>
+              <p></p>
             </li>
             <li className={router.pathname === "/about" ? cls.active : ""}>
               <Link href="/about"> من نحن؟</Link>
+              <p></p>
             </li>
             <li className={router.pathname === "/support" ? cls.active : ""}>
               <Link href="/support"> الدعم الفني</Link>
+              <p></p>
             </li>
           </ul>
         </div>

@@ -12,7 +12,7 @@
   }
   &.scrolled {
     background-color: #fff;
-  } 
+  }
   nav {
     display: flex;
     align-items: center;
@@ -58,9 +58,24 @@
         li {
           border-radius: 10px;
           padding: 8px;
+          position: relative;
+          p {
+            position: absolute;
+            top: 70%;
+            left: 45%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            z-index: -1;
+          }
           &.active {
-            border-top: 2px dashed #fff;
-            border-bottom: 2px dashed #fff;
+            p {
+              opacity: 1;
+              z-index: 1;
+            }
           }
           a {
             color: #fff;

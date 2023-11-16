@@ -22,8 +22,6 @@ const practices = [
 const Practice = ({ quizzes }) => {
   const router = useRouter();
 
-  console.log(quizzes)
-
   return <div className={cls.practice}>
     <div className={cls.practice__header}>
       <div>

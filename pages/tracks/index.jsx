@@ -25,10 +25,8 @@ const Tracks = ({ locale, allCourses, popularCourses }) => {
   const router = useRouter();
 
   useEffect(() => {
-    document.querySelector("body").scrollTo(0,0)
+    document.querySelector("body").scrollTo(0, 0)
   }, [])
-
-  console.log(popularCourses)
 
   // COMPONENT HANDLERS
   const changePage = (e, pageNum) => {
@@ -70,7 +68,7 @@ const Tracks = ({ locale, allCourses, popularCourses }) => {
                   <h6>كورس</h6>
                   <h4>{course.title.en}</h4>
                   <p>In this course we will create two command line applications
-                      using the popular server-side</p>
+                    using the popular server-side</p>
                 </div>
                 <div className={cls.tracks__course_actions}>
                   <div className={cls.icons}>
@@ -191,13 +189,13 @@ export async function getServerSideProps({ req, locale, resolvedUrl }) {
 
   if (languageRedirection) return languageRedirection;
   if (routerRedirection) return routerRedirection;
-    
+
   let popularCourses = []
 
   const POPULAR_COURSES = await axios.get('/get-popular-courses');
 
   if (POPULAR_COURSES) popularCourses = POPULAR_COURSES.data.data
-    
+
   let allCourses = []
 
   const COURSES = await axios.get('/get-all-courses');

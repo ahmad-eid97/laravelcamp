@@ -72,7 +72,6 @@ const LatestCourses = () => {
       <Swiper
         className={`${cls.carousel}`}
         dir="rtl"
-        onSwiper={(swiper) => console.log(swiper)}
         breakpoints={breakpoints}
       >
         {blogs.map((blog, idx) => (

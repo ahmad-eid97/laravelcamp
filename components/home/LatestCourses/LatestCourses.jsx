@@ -47,8 +47,6 @@ const LatestCourses = ({ courses }) => {
     setOpenVideoPreview(true)
   }
 
-  console.log(courses)
-
   return (
     <Container maxWidth="xxl" className={`${cls.latestCourses} container`}>
       <div className={cls.latestCourses__header}>
@@ -58,7 +56,7 @@ const LatestCourses = ({ courses }) => {
           الطلاب المتواجدين لدينا عن خبرة تفوق العشرين عاما
         </p>
       </div>
-      
+
       <Swiper
         className={`${cls.carousel}`}
         dir="rtl"
@@ -89,14 +87,14 @@ const LatestCourses = ({ courses }) => {
                 </p>
               </div>
               <div className={cls.latestCourses__slide_actions}>
-              <Tooltip
-                title="مشاهدة الإعلان"
-                placement="top"
-              >
-                <div className={cls.action} onClick={() => openTrialer(course)}>
-                  <i className="fa-solid fa-play"></i>
-                </div>
-              </Tooltip>
+                <Tooltip
+                  title="مشاهدة الإعلان"
+                  placement="top"
+                >
+                  <div className={cls.action} onClick={() => openTrialer(course)}>
+                    <i className="fa-solid fa-play"></i>
+                  </div>
+                </Tooltip>
                 <div className={cls.action}>Intermediate</div>
                 <div className={cls.action}>PHP</div>
               </div>
