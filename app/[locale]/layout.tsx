@@ -30,7 +30,6 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    icons: { icon: "/assets/imgs/favicon.png" },
   };
 }
 
@@ -54,7 +53,9 @@ export default async function LocaleLayout({
       dir={locale === "ar" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
-      <body className={`${rubik.variable} font-sans`}>
+      {/* suppressHydrationWarning: browser extensions (ColorZilla, Grammarly, ...)
+          inject attributes into <body> before React hydrates */}
+      <body className={`${rubik.variable} font-sans`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
