@@ -1,0 +1,247 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------- design tokens ---------- */
+
+:root {
+  --background: #faf8f6;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
+  --primary: #dc2626;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f1ec;
+  --secondary-foreground: #1c1917;
+  --muted: #f3efe9;
+  --muted-foreground: #78716c;
+  --accent: #f5f1ec;
+  --accent-foreground: #1c1917;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e9e4dd;
+  --input: #e9e4dd;
+  --ring: #dc2626;
+  --radius: 1rem;
+
+  /* brand */
+  --brand-orange: #f97316;
+  --brand-amber: #f59e0b;
+  --brand-ink: #1c1917;
+  --success: #16a34a;
+  --gradient-brand: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
+
+  /* elevation */
+  --shadow-soft:
+    0 1px 2px rgb(28 25 23 / 0.04), 0 8px 24px -8px rgb(28 25 23 / 0.12);
+  --shadow-lifted:
+    0 2px 4px rgb(28 25 23 / 0.04), 0 20px 48px -16px rgb(28 25 23 / 0.24);
+}
+
+.dark {
+  --background: #121110;
+  --foreground: #f5f3f0;
+  --card: #1b1918;
+  --card-foreground: #f5f3f0;
+  --popover: #1b1918;
+  --popover-foreground: #f5f3f0;
+  --primary: #ef4444;
+  --primary-foreground: #ffffff;
+  --secondary: #262322;
+  --secondary-foreground: #f5f3f0;
+  --muted: #242120;
+  --muted-foreground: #a8a29e;
+  --accent: #262322;
+  --accent-foreground: #f5f3f0;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #2d2a28;
+  --input: #2d2a28;
+  --ring: #ef4444;
+
+  --brand-orange: #fb923c;
+  --brand-amber: #fbbf24;
+  --gradient-brand: linear-gradient(135deg, #ef4444 0%, #fb923c 100%);
+
+  --shadow-soft:
+    0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -8px rgb(0 0 0 / 0.5);
+  --shadow-lifted:
+    0 2px 4px rgb(0 0 0 / 0.4), 0 20px 48px -16px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-amber: var(--brand-amber);
+  --color-success: var(--success);
+
+  --font-sans: var(--font-rubik), "Rubik", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 8px);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lifted: var(--shadow-lifted);
+
+  --animate-pulse-ring: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 7s ease-in-out 1.2s infinite;
+  --animate-marquee: marquee 36s linear infinite;
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 45%, transparent);
+    }
+    70% {
+      box-shadow: 0 0 0 16px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-muted-foreground/40;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/60;
+  }
+}
+
+/* ---------- layout ---------- */
+
+@utility container-app {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+}
+
+/* ---------- brand surfaces ---------- */
+
+@utility bg-brand-gradient {
+  background-image: var(--gradient-brand);
+}
+
+@utility text-gradient {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility glass {
+  @apply border border-border/60 backdrop-blur-xl;
+  background-color: color-mix(in srgb, var(--card) 72%, transparent);
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-lifted {
+  box-shadow: var(--shadow-lifted);
+}
+
+/* Warm radial mesh used behind heroes and CTA bands */
+@utility bg-hero-mesh {
+  background-image:
+    radial-gradient(
+      36rem 36rem at 12% 0%,
+      color-mix(in srgb, var(--primary) 9%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      32rem 32rem at 88% 12%,
+      color-mix(in srgb, var(--brand-amber) 12%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      40rem 40rem at 50% 110%,
+      color-mix(in srgb, var(--brand-orange) 7%, transparent),
+      transparent 55%
+    );
+}
+
+@utility bg-dot-grid {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--foreground) 9%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* Soft card hover lift used across the app */
+@utility card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lifted;
+}

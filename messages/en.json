@@ -1,0 +1,321 @@
+{
+  "metadata": {
+    "title": "Laravelcamp",
+    "description": "A modern Arabic-first learning platform for developers — hands-on courses, guided tracks and interactive exercises"
+  },
+  "nav": {
+    "home": "Home",
+    "tracks": "Tracks",
+    "library": "Library",
+    "community": "Community",
+    "articles": "Articles",
+    "about": "About",
+    "contact": "Contact",
+    "support": "Support",
+    "workspaces": "Workspaces",
+    "signIn": "Sign in",
+    "toggleTheme": "Toggle theme",
+    "openMenu": "Open menu",
+    "language": "Language"
+  },
+  "footer": {
+    "about": "A modern Arabic-first learning platform offering hands-on programming courses at world-class quality, from top instructors, at a symbolic price.",
+    "courses": "Courses",
+    "tracks": "Tracks",
+    "degrees": "Degrees",
+    "pages": "Quick links",
+    "aboutPage": "About us",
+    "articles": "Articles",
+    "community": "Community",
+    "market": "Market",
+    "stories": "Stories",
+    "giftCards": "Gift cards",
+    "showMore": "Show more...",
+    "newsletterTitle": "Newsletter",
+    "newsletterText": "The latest courses and articles in your inbox, weekly.",
+    "newsletterPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy",
+    "rights": "© {year} Laravelcamp. All rights reserved"
+  },
+  "common": {
+    "showMore": "Show more",
+    "showAll": "Show all",
+    "showDetails": "View details",
+    "view": "View",
+    "watchTrailer": "Watch the trailer",
+    "course": "Course",
+    "exercises": "Exercises",
+    "minutesLeft": "{count} minutes left",
+    "hoursCount": "{count} hours",
+    "lessonsCount": "{count} lessons",
+    "studentsCount": "{count} students",
+    "minRead": "{count} min read",
+    "levels": {
+      "Beginner": "Beginner",
+      "Intermediate": "Intermediate",
+      "Advanced": "Advanced"
+    },
+    "closeVideo": "Close video",
+    "videoPreview": "Video preview",
+    "previousPage": "Previous page",
+    "nextPage": "Next page"
+  },
+  "home": {
+    "hero": {
+      "badge": "The Arabic-first platform for developers",
+      "titleStart": "Your path to",
+      "titleHighlight": "mastering code",
+      "titleEnd": "starts here",
+      "subtitle": "Hands-on video courses, step-by-step tracks, and interactive exercises that measure your progress — all in Arabic, at world-class quality.",
+      "ctaPrimary": "Start learning now",
+      "ctaSecondary": "Watch the intro",
+      "coursesLabel": "hands-on courses",
+      "studentsLabel": "students learning",
+      "ratingLabel": "student rating",
+      "mockCourse": "React & Next.js course",
+      "mockNextLesson": "Up next",
+      "certTitle": "Certified certificate",
+      "certText": "after every track",
+      "streak": "day learning streak"
+    },
+    "video": {
+      "tagline": "Why Laravelcamp?",
+      "title": "We find the best solutions for you",
+      "description": "Thoughtful study plans, regular follow-ups and continuous assessment — from your first lesson to your first job.",
+      "videoTitle": "A tour inside the platform",
+      "videoDuration": "Just 2 minutes",
+      "payments": "Safe, flexible payments",
+      "paymentsText": "Subscribe securely at prices everyone can afford.",
+      "reports": "Daily progress reports",
+      "reportsText": "A dashboard that tracks your progress and strengths.",
+      "speed": "Fast, responsive support",
+      "speedText": "A team that answers your questions within hours.",
+      "play": "Play video"
+    },
+    "latestCourses": {
+      "tagline": "Fresh content",
+      "title": "Latest Courses",
+      "description": "Our highest-rated courses — practical content that builds lesson upon lesson.",
+      "viewAll": "View all courses"
+    },
+    "subscription": {
+      "tagline": "Pricing plans",
+      "title": "Invest in your future for a symbolic price",
+      "description": "Pick the plan that fits you and start your journey — upgrade or cancel anytime.",
+      "featuredBadge": "Most popular",
+      "monthly": "/ month",
+      "learnMore": "Get started"
+    },
+    "faq": {
+      "tagline": "FAQ",
+      "title": "Everything you need to know before you start",
+      "description": "We collected answers to the questions our students ask most.",
+      "contactHint": "Have another question?",
+      "contactLink": "Contact us"
+    },
+    "skills": {
+      "title": "Technologies and skills you will learn with us",
+      "description": "Every technology the job market demands, in constantly updated hands-on courses"
+    },
+    "testimonials": {
+      "tagline": "Student stories",
+      "title": "Success stories we are proud of"
+    },
+    "blogs": {
+      "tagline": "From the blog",
+      "title": "Latest Articles",
+      "viewAll": "View all articles"
+    },
+    "cta": {
+      "title": "Ready to start your coding journey?",
+      "text": "Join thousands of students learning with us today — your first course is completely free.",
+      "primary": "Create your account",
+      "secondary": "Browse tracks"
+    }
+  },
+  "tracks": {
+    "tagline": "Tracks & courses",
+    "heroTitle": "Pick your track and start learning",
+    "heroText": "Step-by-step tracks that take you from zero to professional — choose what fits your goal.",
+    "popularTitle": "Trending now",
+    "popularDescription": "The courses students are engaging with the most on the platform",
+    "allTitle": "Browse all courses",
+    "allDescription": "Every course currently available on the platform",
+    "empty": "There are no courses at the moment",
+    "salaryTooltip": "A junior salary for the technologies covered in this track is around $400",
+    "companiesTooltip": "Google, Facebook, Linkedin, Twitter"
+  },
+  "trackDetails": {
+    "welcome": "Welcome to {title}",
+    "subtitle": "Learn to code websites using {title}",
+    "track": "Track",
+    "curriculum": "Track curriculum",
+    "chaptersCount": "{count} chapters",
+    "chapterLabel": "Chapter {number}",
+    "progress": "Progress",
+    "aboutTrack": "About this track",
+    "paragraph1": "Front end web development involves web design and building the websites people use every day. It is a comprehensive skill set used by nearly every company in the world that needs a website to communicate with its customers.",
+    "paragraph2": "In this track you will learn how to build beautiful, interactive websites by mastering the fundamentals of HTML, CSS and JavaScript — the three languages all modern websites are built on. By the end you will have every skill required to build your own websites or start your career.",
+    "salary": "The average entry-level salary for the technologies covered in this track is around $51,000 per year.",
+    "companies": "Companies that regularly use these technologies include: Google, Facebook, Yahoo, eBay and Amazon",
+    "startTrack": "Start the track",
+    "watchIntro": "Watch the intro"
+  },
+  "library": {
+    "tagline": "Library",
+    "heroTitle": "What do you want to learn today?",
+    "heroText": "Search courses, topics and exercises — all the content in one place.",
+    "search": {
+      "placeholder": "Search for courses and teachers...",
+      "filters": {
+        "newest": "Newest",
+        "yesterday": "Yesterday",
+        "lastWeek": "Last week",
+        "lastMonth": "Last month",
+        "courses": "Courses",
+        "videos": "Videos",
+        "scholarships": "Scholarships"
+      }
+    },
+    "topics": {
+      "title": "Topics",
+      "description": "Browse content by the topics that interest you most."
+    },
+    "practice": {
+      "title": "Practice",
+      "description": "Sharpen and strengthen your skills with these exercises.",
+      "showAll": "Show all ({count})"
+    }
+  },
+  "course": {
+    "restartVideo": "Restart",
+    "continueWatching": "Continue watching",
+    "needHelp": "Need help?",
+    "helpText": "Have questions about this video? Start a discussion with the community and platform staff.",
+    "help": "Get help",
+    "lesson": "Lesson",
+    "tabs": {
+      "teacherNotes": "Teacher's notes",
+      "questions": "{count} questions",
+      "videoText": "Transcript",
+      "downloads": "Downloads",
+      "workspace": "Workspace"
+    },
+    "notes": {
+      "newTerms": "New terms",
+      "exampleWebsites": "Example websites",
+      "furtherReading": "Further reading"
+    },
+    "questions": {
+      "postedOn": "Posted on {date} by {name}",
+      "answers": "Answers",
+      "showAll": "Show all questions"
+    },
+    "downloadsText": "Downloading videos is a feature of the upgraded courses subscription. Want access?",
+    "upgrade": "Upgrade to the paid course",
+    "workspaceText": "It looks like you need to <link>create a workspace</link> for this video."
+  },
+  "techdegree": {
+    "startCourse": "Start the course",
+    "aboutTitle": "About this course",
+    "aboutText": "Learn to build web pages with HTML and CSS, the basic building blocks of web development. HTML is a standard set of tags that tell the browser how your page content is structured, and CSS defines how that content looks. Whether you are coding for fun or planning a career in web development, HTML and CSS are the perfect place to start.",
+    "learnTitle": "What you will learn",
+    "stepsCount": "{count} steps",
+    "questionsCount": "{count} questions",
+    "teacher": "Instructor",
+    "curriculum": "Course curriculum",
+    "downloadTitle": "Download the course videos",
+    "downloadText": "Downloading videos is a feature of the upgraded courses subscription. Want access?",
+    "upgrade": "Upgrade to a paid course"
+  },
+  "about": {
+    "tagline": "About us",
+    "heroTitle": "Building a generation of professional Arab developers",
+    "heroText": "A modern Arabic-first learning platform — our goal is to put programming within everyone's reach, with practical content and world-class quality.",
+    "companyTagline": "Our story",
+    "companyTitle": "We help businesses grow with promising services",
+    "experienceTitle": "More than 22 years of experience in digital technology solutions",
+    "analytics": "Analytics",
+    "solutions": "Solutions",
+    "processTagline": "How we work",
+    "processTitle": "Our services help you grow",
+    "quote": "Get a quote",
+    "explore": "Explore",
+    "story": "Laravelcamp was founded to make access to technology easier through affordable Arabic tech education. Over the past decade we taught more than 1.2 million people how to code and design, and today we are the platform of choice for thousands of students, schools and organizations around the world.",
+    "stats": {
+      "students": "students learning",
+      "courses": "hands-on courses",
+      "instructors": "expert instructors",
+      "satisfaction": "satisfaction rate"
+    },
+    "joinTitle": "Join the Laravelcamp team",
+    "joinText": "We work hard to craft the best learning experience ever, and we are always looking for great people who share that vision.",
+    "jobs": "Open positions"
+  },
+  "blogs": {
+    "tagline": "Blog",
+    "title": "Latest Articles",
+    "heroText": "Practical technical articles — from the fundamentals to the latest developer tools."
+  },
+  "contact": {
+    "tagline": "Contact us",
+    "title": "We would love to hear from you",
+    "heroText": "A question, a suggestion, or a technical issue? Our team replies within hours.",
+    "infoTitle": "Contact information",
+    "infoText": "Reach us through any of the channels below, or send your message directly.",
+    "phone": "Phone",
+    "address": "Address",
+    "hours": "Working hours",
+    "name": "Name",
+    "namePlaceholder": "Your full name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "How can we help?",
+    "message": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "send": "Send message",
+    "mapTitle": "Map"
+  },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to continue your learning journey",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "submit": "Sign in",
+    "demoNote": "This is a demo — sign-in is not wired up.",
+    "backHome": "Back to home"
+  },
+  "profile": {
+    "title": "Profile",
+    "student": "Student",
+    "personalTitle": "Personal details",
+    "paymentTitle": "Subscription details",
+    "fullName": "Full name",
+    "company": "Company",
+    "phone": "Phone number",
+    "companyLocation": "Company location",
+    "country": "Country",
+    "contactChannels": "Contact channels",
+    "planDetails": "Current plan",
+    "renewalDate": "Renewal date",
+    "paymentDetails": "Payment method",
+    "progressTitle": "Your progress this month",
+    "hoursWatched": "hours watched",
+    "lessonsDone": "lessons completed",
+    "certificates": "certificates",
+    "data": {
+      "fullName": "Ahmad Eid Ahmad",
+      "company": "Company name",
+      "country": "Egypt",
+      "contactChannel": "Email",
+      "plan": "Pro plan",
+      "renewal": "Your next billing date is September 6, 2026"
+    }
+  }
+}
